@@ -6,13 +6,35 @@
 
 // Dependencies
 const http = require("http");
+const https = require("https");
+const fs = require("fs");
 const { StringDecoder } = require("string_decoder");
 const url = require("url");
+const config = require("./config");
 
-const PORT = 6600;
+// instantiate http server
+const httpserver = http.createServer((req, res) => {
+  unifiedServer(req, res);
+});
 
-// create server
-const server = http.createServer((req, res) => {
+httpserver.listen(config.httpPort, () => {
+  console.log(`server listening on port: ${config.httpPort}.`);
+});
+
+const serverOptions = {
+  key: fs.readFileSync("./https/key.pem"),
+  cert: fs.readFileSync("./https/cert.pem"),
+};
+// // instantiate https server
+const httpsserver = https.createServer(serverOptions, (req, res) => {
+  unifiedServer(req, res);
+});
+
+httpsserver.listen(config.httpsPort, () => {
+  console.log(`server listening on port: ${config.httpsPort}.`);
+});
+
+const unifiedServer = (req, res) => {
   // Get url and parse it
   const parsedUrl = url.parse(req.url, true);
 
@@ -72,11 +94,7 @@ const server = http.createServer((req, res) => {
       console.log("returning the response: ", statusCode, payloadString);
     });
   });
-});
-
-server.listen(PORT, () => {
-  console.log(`server listening on port: ${PORT}`);
-});
+};
 
 // define handlers
 const handlers = {};
@@ -86,6 +104,14 @@ handlers.sample = (data, callback) => {
   callback(406, { name: "sample handler" });
 };
 
+handlers.ping = (data, callback) => {
+  callback(200, { ping: "pong" });
+};
+
+handlers.hello = (data, callback) => {
+  callback(200, { message: "hello from the back end side." });
+};
+
 handlers.notFound = (data, callback) => {
   callback(404);
 };
@@ -93,6 +119,8 @@ handlers.notFound = (data, callback) => {
 // define router
 const router = {
   sample: handlers.sample,
+  ping: handlers.ping,
+  hello: handlers.hello,
 };
 /* to test localhost on terminal:
  * curl localhost: <port number>
