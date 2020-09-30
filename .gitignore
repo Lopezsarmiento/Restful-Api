@@ -1,4 +1,2 @@
 /https
-/.pem
-*.pem
 .env.local
