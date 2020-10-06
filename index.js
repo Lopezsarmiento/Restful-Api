@@ -11,6 +11,21 @@ const fs = require("fs");
 const { StringDecoder } = require("string_decoder");
 const url = require("url");
 const config = require("./config");
+const _data = require("./lib/data");
+
+// TEST writing data
+// @TODO delete this
+// _data.create("test", "newFile", { foo: "bar" }, (err) => {
+//   console.log("error: ", err);
+// });
+
+// _data.read("test", "newFile1", (err, data) => {
+//   console.log("error: ", err, "data: ", data);
+// });
+
+// _data.update("test", "newFile", { fizz: "buzz", user: "sumercisco" }, (err) => {
+//   console.log("error: ", err);
+// });
 
 // instantiate http server
 const httpserver = http.createServer((req, res) => {
