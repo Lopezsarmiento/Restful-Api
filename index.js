@@ -10,8 +10,10 @@ const https = require("https");
 const fs = require("fs");
 const { StringDecoder } = require("string_decoder");
 const url = require("url");
-const config = require("./config");
+const config = require("./lib/config");
 const _data = require("./lib/data");
+const handlers = require("./lib/handlers");
+const helpers = require("./lib/helpers");
 
 // TEST writing data
 // @TODO delete this
@@ -89,7 +91,7 @@ const unifiedServer = (req, res) => {
       trimmedPath,
       method,
       headers,
-      payload: buffer,
+      payload: helpers.parseJsonToObject(buffer),
     };
 
     // Route the request to the handler specified
@@ -111,31 +113,12 @@ const unifiedServer = (req, res) => {
   });
 };
 
-// define handlers
-const handlers = {};
-
-//sample handler
-handlers.sample = (data, callback) => {
-  callback(406, { name: "sample handler" });
-};
-
-handlers.ping = (data, callback) => {
-  callback(200, { ping: "pong" });
-};
-
-handlers.hello = (data, callback) => {
-  callback(200, { message: "hello from the back end side." });
-};
-
-handlers.notFound = (data, callback) => {
-  callback(404);
-};
-
 // define router
 const router = {
   sample: handlers.sample,
   ping: handlers.ping,
   hello: handlers.hello,
+  users: handlers.users,
 };
 /* to test localhost on terminal:
  * curl localhost: <port number>

@@ -1,0 +1,10 @@
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "Silvia",
+  "lastname": "Herrera",
+  "phone":"1164894653",
+  "password":"password",
+  "tosAgreement": true
+}
