@@ -60,15 +60,13 @@ const unifiedServer = (req, res) => {
   const trimmedPath = path.replace(/^\/+|\/+$/g, "");
 
   // //Get query string
-  // const queryStringObject = parsedUrl.query;
-  // console.log("query: ", queryStringObject);
+  const queryStringObject = url.parse(req.url, true).query;
 
   //Get http method
   const method = req.method;
 
   // Get headers
   const headers = req.headers;
-  console.log("headers: ", headers);
 
   // Get the payload
   const decoder = new StringDecoder("utf-8");
@@ -90,10 +88,14 @@ const unifiedServer = (req, res) => {
     const data = {
       trimmedPath,
       method,
+      queryStringObject,
       headers,
-      payload: helpers.parseJsonToObject(buffer),
     };
 
+    // sometimes there is no data in buffer
+    if (buffer) {
+      data.payload = helpers.parseJsonToObject(buffer);
+    }
     // Route the request to the handler specified
     chosenHandler(data, (statusCode, payload) => {
       statusCode = typeof statusCode === "number" ? statusCode : 200;

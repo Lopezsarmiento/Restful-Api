@@ -2,20 +2,26 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "firstname": "Silvia",
-  "lastname": "Herrera",
-  "phone":"1164894653",
+  "firstname": "David",
+  "lastname": "Lopez",
+  "phone":"1158983970",
   "password":"password",
   "tosAgreement": true
 }
+###
 
-POST http://localhost:3000/users
+GET http://localhost:3000/users?phone=1164894654
+
+###
+
+PUT http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "firstname": "Silvia",
-  "lastname": "Herrera",
-  "phone":"1164894653",
-  "password":"password",
-  "tosAgreement": true
+  "firstname": "Davicho",
+  "phone":"1164894654"
 }
+
+###
+
+DELETE http://localhost:3000/users?phone=1158983970
