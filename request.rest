@@ -11,15 +11,17 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/users?phone=1158983970
+token: tpdthmaqvku63fgmvi4v
 
 ###
 
 PUT http://localhost:3000/users
 Content-Type: application/json
+token: mu3ajij8wyscl0ulf5yx
 
 {
-  "firstname": "Davicho",
-  "phone":"1164894654"
+  "firstname": "Davichi",
+  "phone":"1158983970"
 }
 
 ###
@@ -41,3 +43,15 @@ Content-Type: application/json
 GET http://localhost:3000/tokens?tokenId=5of4fj1gxthd0db5f665
 
 ###
+
+PUT  http://localhost:3000/tokens
+Content-Type: application/json
+
+{
+  "id":"hapic2tu33ibz1j8pjix",
+  "extend":true
+}
+
+###
+
+DELETE http://localhost:3000/tokens?id=5of4fj1gxthd0db5f665
