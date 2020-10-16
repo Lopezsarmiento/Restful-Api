@@ -1,4 +1,4 @@
 /https
 .env.local
 /lib/config.js
-/data
+/.data
