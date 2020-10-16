@@ -122,6 +122,7 @@ const router = {
   hello: handlers.hello,
   users: handlers.users,
   tokens: handlers.tokens,
+  checks: handlers.checks,
 };
 /* to test localhost on terminal:
  * curl localhost: <port number>
