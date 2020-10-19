@@ -11,7 +11,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/users?phone=1158983970
-token: tpdthmaqvku63fgmvi4v
+token: wwf9bgufahg3ftx6lfyn
 
 ###
 
@@ -27,7 +27,7 @@ token: cple5vt3a4f9lsrixg6a
 ###
 
 DELETE http://localhost:3000/users?phone=1158983970
-token: h7dachnl4rjry4i7lzsj
+token: 2mj3ln9c0wm4hk9w43lx
 
 ###
 // Tokens
@@ -61,12 +61,34 @@ DELETE http://localhost:3000/tokens?id=5of4fj1gxthd0db5f665
 // Checks
 POST http://localhost:3000/checks
 Content-Type: application/json
-token: h7dachnl4rjry4i7lzsj
+token: 2mj3ln9c0wm4hk9w43lx
 
 {
   "protocol":"http",
-  "url":"eltiempo.com",
+  "url":"infobae.com",
   "method":"get",
   "successcodes":[200, 201],
   "timeoutseconds": 3
 }
+
+###
+
+GET http://localhost:3000/checks?id=tfam2lt45bep7koy0dy4
+token: jmree4ukutfr00ta3e8a
+
+###
+
+PUT  http://localhost:3000/checks
+Content-Type: application/json
+token: jmree4ukutfr00ta3e8a
+
+{
+  "id":"tfam2lt45bep7koy0dy4",
+  "protocol":"https",
+  "url":"google.com.ar"
+}
+
+###
+
+DELETE http://localhost:3000/checks?id=tfam2lt45bep7koy0dy4
+token: 18pxrpwt5w5txerfhgmd
