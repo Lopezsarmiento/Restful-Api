@@ -14,7 +14,11 @@ const config = require("./lib/config");
 const _data = require("./lib/data");
 const handlers = require("./lib/handlers");
 const helpers = require("./lib/helpers");
-
+ 
+// @todo remove this
+// helpers.sendTwilioSms('1158983971', 'Hello from twilio', (err) => {
+//   console.log('error: ', err);
+// })
 // TEST writing data
 // @TODO delete this
 // _data.create("test", "newFile", { foo: "bar" }, (err) => {
