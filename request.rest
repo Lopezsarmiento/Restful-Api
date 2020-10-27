@@ -61,13 +61,13 @@ DELETE http://localhost:3000/tokens?id=5of4fj1gxthd0db5f665
 // Checks
 POST http://localhost:3000/checks
 Content-Type: application/json
-token: 2mj3ln9c0wm4hk9w43lx
+token: 6onxitxpx2icxewj7w4n
 
 {
-  "protocol":"http",
+  "protocol":"https",
   "url":"infobae.com",
   "method":"get",
-  "successcodes":[200, 201],
+  "successcodes":[200, 201, 301, 302],
   "timeoutseconds": 3
 }
 
