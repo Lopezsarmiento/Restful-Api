@@ -2,4 +2,4 @@
 .env.local
 /lib/config.js
 /.data
-/.logs
+/.logs/
