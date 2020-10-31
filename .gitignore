@@ -1,5 +1,7 @@
 /https
 .env.local
 /lib/config.js
-/.data/
+/.data/users
+/.data/checks
+/.data/tokens
 /.logs/
