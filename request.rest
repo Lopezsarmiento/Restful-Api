@@ -78,7 +78,7 @@ token: jmree4ukutfr00ta3e8a
 
 ###
 
-PUT  http://localhost:3000/checks
+()PUT  http://localhost:3000/checks
 Content-Type: application/json
 token: jmree4ukutfr00ta3e8a
 
@@ -91,4 +91,7 @@ token: jmree4ukutfr00ta3e8a
 ###
 
 DELETE http://localhost:3000/checks?id=tfam2lt45bep7koy0dy4
-token: 18pxrpwt5w5txerfhgmd
+token: 18pxrpwt5w5txerfhgmdLJSONamout:2000"Bubu
+
+###
+GET http://localhost:3000/
