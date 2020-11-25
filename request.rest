@@ -1,16 +1,16 @@
-POST http://localhost:3000/users
+POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-  "firstname": "David",
+  "firstname": "maite",
   "lastname": "Lopez",
-  "phone":"1158983970",
+  "phone":"1158983972",
   "password":"password",
   "tosAgreement": true
 }
 ###
 
-GET http://localhost:3000/users?phone=1158983970
+GET http://localhost:3000/api/users?phone=1158983970
 token: wwf9bgufahg3ftx6lfyn
 
 ###
@@ -31,17 +31,17 @@ token: 2mj3ln9c0wm4hk9w43lx
 
 ###
 // Tokens
-POST http://localhost:3000/tokens
+POST http://localhost:3000/api/tokens
 Content-Type: application/json
 
 {
-  "phone":"1158983970",
+  "phone":"1158983971",
   "password":"password"
 }
 
 ###
 
-GET http://localhost:3000/tokens?tokenId=5of4fj1gxthd0db5f665
+GET http://localhost:3000/api/tokens
 
 ###
 
@@ -78,7 +78,7 @@ token: jmree4ukutfr00ta3e8a
 
 ###
 
-()PUT  http://localhost:3000/checks
+PUT  http://localhost:3000/checks
 Content-Type: application/json
 token: jmree4ukutfr00ta3e8a
 
@@ -95,3 +95,7 @@ token: 18pxrpwt5w5txerfhgmdLJSONamout:2000"Bubu
 
 ###
 GET http://localhost:3000/
+
+###
+
+GET http://localhost:3000/ping
